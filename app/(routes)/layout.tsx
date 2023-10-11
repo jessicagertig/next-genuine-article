@@ -1,6 +1,7 @@
 import "../styles.scss"
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { AppWrapper } from '@/app/components/AppWrapper'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -42,7 +43,13 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/icon?family=Material+Icons"
         />
       </head>
-      <body className={inter.className}><div id="root">{children}</div></body>
+      <body className={inter.className}>
+        <div id="root">    
+          <AppWrapper>
+            {children}
+          </AppWrapper>
+        </div>
+      </body>
     </html>
   )
 }
