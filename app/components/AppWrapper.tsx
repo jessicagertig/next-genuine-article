@@ -1,7 +1,7 @@
 "use client"
 
 import React, { StrictMode } from "react";
-// import { ThemeProvider } from "@mui/material";
+import { ThemeProvider } from "@mui/material";
 import { ThemeProvider as EmotionThemeProvider } from "@emotion/react";
 // import { QueryClient, QueryClientProvider } from "react-query";
 // import { LocalizationProvider } from "@mui/x-date-pickers";
@@ -12,7 +12,7 @@ import { ThemeProvider as EmotionThemeProvider } from "@emotion/react";
 // import { AuthProvider } from "src/context/AuthContext";
 
 import myTheme from "@/app/theme";
-// import customTheme from "src/styles/customTheme";
+import customTheme from "@/app/customTheme";
 
 /* REACT QUERY
 --===================================================-- */
@@ -46,16 +46,18 @@ import myTheme from "@/app/theme";
 //   );
 // }
 
-export function AppWrapper({ children }: { children: React.ReactNode }) {
+export default function AppWrapper({ children }: { children: React.ReactNode }) {
   return (
-    <StrictMode>
+    //     <StrictMode>
+    <ThemeProvider theme={customTheme}>
       <EmotionThemeProvider theme={myTheme}>
-          {/* <WindowSizeProvider>
-            <ModalProvider> */}
-              {children}
-            {/* </ModalProvider>
-          </WindowSizeProvider> */}
+        {/* <WindowSizeProvider>
+             <ModalProvider> */}
+        {children}
+        {/* </ModalProvider>
+           </WindowSizeProvider> */}
       </EmotionThemeProvider>
-    </StrictMode>
+    </ThemeProvider>
+    //     </StrictMode>
   );
 }
