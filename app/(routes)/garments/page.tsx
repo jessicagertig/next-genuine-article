@@ -18,7 +18,7 @@ const GarmentsPage: React.FC<GarmentsPageProps> = props => {
       <div className="page-container" style={containerStyle}>
         <NavBar backgroundColor="white" shadow={true} />
         <div>
-          <h2>Garments/Search</h2>
+          <h2>Garments</h2>
         </div>
         <div>
           <p>Other content</p>

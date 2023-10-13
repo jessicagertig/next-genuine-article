@@ -1,9 +1,9 @@
 import React from "react";
 
+import NavBar from "@/app/components/NavBar";
+
 interface SearchPageProps {}
 
-// basic format for a component
-// replace "SearchPage" with new component name throuhgout
 const containerStyle = {
   width: "100%",
   height: "100%",
@@ -15,6 +15,7 @@ const SearchPage: React.FC<SearchPageProps> = props => {
   return (
     <React.Fragment>
       <div className="page-container" style={containerStyle}>
+      <NavBar backgroundColor="white" shadow={true} />
         <div>
           <h2>Search</h2>
         </div>

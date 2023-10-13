@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import NextAppDirEmotionCacheProvider from "@/app/ThemeRegistry";
 import { Bellota_Text } from "next/font/google"
 
-
 import AppWrapper from "@/app/components/AppWrapper";
 
 export const bellota = Bellota_Text({
@@ -53,8 +52,6 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://fonts.googleapis.com/icon?family=Material+Icons"
         />
-        <link rel="preconnect" href="https://fonts.googleapis.com"/>
-        <link rel="preconnect" href="https://fonts.gstatic.com"/>
       </head>
       <body className={bellota.className}>
         <div id="root" className={bellota.className}>
