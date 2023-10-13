@@ -26,11 +26,15 @@ const Navigation: React.FC<NavProps> = ({ activeColor, hasCurrentUser, color }) 
         </li>
         <li>
           <Link href="/garments" className={toggleActiveClass("/garments")}>
-            About
+            Garments
           </Link>
         </li>
         <li>
-          {hasCurrentUser ? (
+          <Link href="/search" className={toggleActiveClass("/search")}>
+            Search
+          </Link>
+        </li>
+          {/* {hasCurrentUser ? (
           <Link href="/admin" className={toggleActiveClass("/admin")}>
             Admin
           </Link>
@@ -38,8 +42,7 @@ const Navigation: React.FC<NavProps> = ({ activeColor, hasCurrentUser, color }) 
             <Link href="/login" className={toggleActiveClass("/login")}>
             Login
           </Link>
-          )}
-        </li>
+          )} */}
       </Styled.LinksContainer>
     </nav>
   )

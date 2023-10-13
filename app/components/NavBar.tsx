@@ -1,15 +1,11 @@
-"use client"
+"use client";
 
 import React from "react";
 import styled from "@emotion/styled";
 import { css, Theme } from "@emotion/react";
 import Image from "next/image";
 
-import Menu from "@mui/material/Menu";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-
-import NavMenuItem from "@/app/components/NavMenuItem";
+import NavDropDown from "@/app/components/NavDropDown";
 import Navigation from "@/app/components/Navigation";
 
 // import { useAuthContext } from "src/context/AuthContext";
@@ -23,48 +19,6 @@ const NavBar: React.FC<NavBarProps> = ({ backgroundColor, shadow }) => {
   // const { currentUser } = useAuthContext();
   const currentUser = true;
 
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const menu = (
-    <Styled.MenuContainer>
-      <IconButton
-        component="button"
-        id="icon-menu-button"
-        aria-controls={open ? "nav-menu" : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? "true" : undefined}
-        onClick={handleClick}
-        sx={{ "& .MuiIconButton-root": { color: "#020b1c" } }}
-      >
-        <MenuIcon sx={{ color: "#020b1c", fill: "#020b1c" }} />
-      </IconButton>
-      <Menu
-        id="basic-menu"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        MenuListProps={{
-          "aria-labelledby": "basic-button",
-        }}
-      >
-        <NavMenuItem onClose={handleClose} name={"Home"} href={"/"} />
-        <NavMenuItem onClose={handleClose} name={"Garments"} href={"/garments"} />
-        {currentUser ? (
-          <NavMenuItem onClose={handleClose} name={"Admin"} href={"/admin"} />
-        ) : (
-          <NavMenuItem onClose={handleClose} name={"Login"} href={"/login"} />
-        )}
-      </Menu>
-    </Styled.MenuContainer>
-  );
-
   return (
     <Styled.NavBarContainer
       style={{ background: backgroundColor }}
@@ -73,18 +27,36 @@ const NavBar: React.FC<NavBarProps> = ({ backgroundColor, shadow }) => {
       <Styled.Container>
         <Styled.LogoContainer>
           <Styled.LargeLogo>
-            <Image src="/darkHeaderLogo.png" alt="bonnet logo" width={185} height={74} />
+            <Image
+              src="/darkHeaderLogo.png"
+              alt="bonnet logo"
+              width={185}
+              height={74}
+              priority
+            />
           </Styled.LargeLogo>
           <Styled.SmallLogo>
-            <Image src="/darkBonnet.png" alt="bonnet logo" width={42} height={42} />
+            <Image
+              src="/darkBonnet.png"
+              alt="bonnet logo"
+              width={42}
+              height={42}
+              priority
+            />
           </Styled.SmallLogo>
         </Styled.LogoContainer>
       </Styled.Container>
       <Styled.Container>
         <>
-          <Navigation hasCurrentUser={true} activeColor="#831616" color="#C42121"/>
+          <Navigation
+            hasCurrentUser={true}
+            activeColor="#831616"
+            color="#C42121"
+          />
         </>
-        {menu}
+        <Styled.MenuContainer>
+          <NavDropDown hasCurrentUser={currentUser} />
+        </Styled.MenuContainer>
       </Styled.Container>
     </Styled.NavBarContainer>
   );
@@ -98,29 +70,31 @@ let Styled: any;
 Styled = {};
 
 interface Props {
-  theme: Theme
+  theme: Theme;
 }
 
-Styled.NavBarContainer = styled.div(({ theme, shadow}: { theme: Theme, shadow: boolean}) => {
-  const t = theme;
-  return css`
-    label: NavBar;
-    ${t.py(6)}
-    width: 100%;
-    height: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-right: 8%;
-    padding-left: 8%;
-    box-shadow: ${shadow ? "0 0px 15px rgba(211, 217, 229, 0.7)" : ""};
-    z-index: 2;
+Styled.NavBarContainer = styled.div(
+  ({ theme, shadow }: { theme: Theme; shadow: boolean }) => {
+    const t = theme;
+    return css`
+      label: NavBar;
+      ${t.py(6)}
+      width: 100%;
+      height: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-right: 8%;
+      padding-left: 8%;
+      box-shadow: ${shadow ? "0 0px 15px rgba(211, 217, 229, 0.7)" : ""};
+      z-index: 2;
 
-    ${t.mq.md} {
-      height: 90px;
-    }
-  `;
-});
+      ${t.mq.md} {
+        height: 90px;
+      }
+    `;
+  }
+);
 
 Styled.Container = styled.div((props: Props) => {
   const t = props.theme;
@@ -139,6 +113,20 @@ Styled.Container = styled.div((props: Props) => {
     }
   `;
 });
+
+Styled.LogoContainer = styled.div((props: Props) => {
+  const t = props.theme;
+  return css`
+    label: NavBarLogo;
+    width: auto;
+    height: 50px;
+
+    ${t.mq.md} {
+      height: 90px;
+    }
+  `;
+});
+
 
 Styled.LargeLogo = styled.div((props: Props) => {
   const t = props.theme;
@@ -165,19 +153,6 @@ Styled.SmallLogo = styled.div((props: Props) => {
 
     ${t.mq.md} {
       display: none;
-    }
-  `;
-});
-
-Styled.LogoContainer = styled.div((props: Props) => {
-  const t = props.theme;
-  return css`
-    label: NavBarLogo;
-    width: auto;
-    height: 50px;
-
-    ${t.mq.md} {
-      height: 90px;
     }
   `;
 });
