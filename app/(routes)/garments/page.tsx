@@ -1,6 +1,7 @@
 import React from "react";
+import NavBar from "@/app/components/NavBar";
 
-interface GarmentsPageProps {};
+interface GarmentsPageProps {}
 
 // basic format for a component
 // replace "GarmentsPage" with new component name throuhgout
@@ -9,14 +10,13 @@ const containerStyle = {
   height: "100%",
   display: "block",
   overflow: "hidden",
-}
+};
 
-const GarmentsPage: React.FC<GarmentsPageProps> = (props) => {
-
+const GarmentsPage: React.FC<GarmentsPageProps> = props => {
   return (
-    
-<>      
-<div className="page-container" style={containerStyle}>
+    <>
+      <div className="page-container" style={containerStyle}>
+        <NavBar backgroundColor="white" shadow={true} />
         <div>
           <h2>Garments/Search</h2>
         </div>
@@ -24,8 +24,7 @@ const GarmentsPage: React.FC<GarmentsPageProps> = (props) => {
           <p>Other content</p>
         </div>
       </div>
-</>
-    
+    </>
   );
 };
 

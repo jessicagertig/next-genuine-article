@@ -1,6 +1,6 @@
 import React from "react";
 
-interface GarmentPageProps {};
+interface GarmentPageProps {}
 
 // basic format for a component
 // replace "GarmentPage" with new component name throuhgout
@@ -9,14 +9,12 @@ const containerStyle = {
   height: "100%",
   display: "block",
   overflow: "hidden",
-}
+};
 
-const GarmentPage: React.FC<GarmentPageProps> = (props) => {
-
+const GarmentPage: React.FC<GarmentPageProps> = props => {
   return (
-    
-<React.Fragment>      
-<div className="page-container" style={containerStyle}>
+    <React.Fragment>
+      <div className="page-container" style={containerStyle}>
         <div>
           <h2>Garment</h2>
         </div>
@@ -24,8 +22,7 @@ const GarmentPage: React.FC<GarmentPageProps> = (props) => {
           <p>Other content</p>
         </div>
       </div>
-</React.Fragment>
-    
+    </React.Fragment>
   );
 };
 
