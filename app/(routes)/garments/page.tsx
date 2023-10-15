@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from "@/app/components/NavBar";
+import NavBar from "@/app/components/Navigation/NavBar";
 
 interface GarmentsPageProps {}
 

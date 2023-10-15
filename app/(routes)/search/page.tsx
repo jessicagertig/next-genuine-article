@@ -1,6 +1,6 @@
 import React from "react";
 
-import NavBar from "@/app/components/NavBar";
+import NavBar from "@/app/components/Navigation/NavBar";
 
 interface SearchPageProps {}
 
@@ -15,7 +15,7 @@ const SearchPage: React.FC<SearchPageProps> = props => {
   return (
     <React.Fragment>
       <div className="page-container" style={containerStyle}>
-      <NavBar backgroundColor="white" shadow={true} />
+        <NavBar backgroundColor="white" shadow={true} />
         <div>
           <h2>Search</h2>
         </div>

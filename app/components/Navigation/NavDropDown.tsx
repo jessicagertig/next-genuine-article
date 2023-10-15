@@ -5,7 +5,7 @@ import Menu from "@mui/material/Menu";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 
-import NavMenuItem from "@/app/components/NavMenuItem";
+import NavMenuItem from "@/app/components/Navigation/NavMenuItem";
 
 interface NavDropDownProps {
   hasCurrentUser: boolean;

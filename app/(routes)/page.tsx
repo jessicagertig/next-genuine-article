@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
 import React from "react";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 
-import NavBar from "@/app/components/NavBar";
+import NavBar from "@/app/components/Navigation/NavBar";
 // import Main from "src/components/LandingPage/Main";
 // import BottomContent from "src/components/LandingPage/BottomContent";
 // import Footer from "src/components/shared/Footer";
@@ -29,15 +29,18 @@ const LandingPage: React.FC<LandingPageProps> = props => {
   // };
 
   return (
-      <Styled.LandingPageContainer data-testid="landing-page-container" ref={pageContainerRef} >
-        <NavBar backgroundColor="white" />
-        {/* <Main ref={scrollRef} windowHeight={height} />
+    <Styled.LandingPageContainer
+      data-testid="landing-page-container"
+      ref={pageContainerRef}
+    >
+      <NavBar backgroundColor="white" />
+      {/* <Main ref={scrollRef} windowHeight={height} />
         <Styled.RefContainer ref={scrollRef} windowHeight={height}>
           <DailyGarment windowHeight={height} windowWidth={width} />
         </Styled.RefContainer>
         <BottomContent />
         <Footer scrollToTop={scrollToTop} dark={false} /> */}
-      </Styled.LandingPageContainer>
+    </Styled.LandingPageContainer>
   );
 };
 
@@ -48,7 +51,7 @@ export default LandingPage;
 let Styled: any;
 Styled = {};
 
-Styled.LandingPageContainer = styled.div((props) => {
+Styled.LandingPageContainer = styled.div(props => {
   return css`
     label: LandingPageContainer;
     width: 100%;
@@ -56,7 +59,6 @@ Styled.LandingPageContainer = styled.div((props) => {
     display: block;
     overflow-y: scroll;
 
-    
     & > :last-child {
       margin-top: auto;
     }

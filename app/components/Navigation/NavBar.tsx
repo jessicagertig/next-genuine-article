@@ -5,8 +5,8 @@ import styled from "@emotion/styled";
 import { css, Theme } from "@emotion/react";
 import Image from "next/image";
 
-import NavDropDown from "@/app/components/NavDropDown";
-import Navigation from "@/app/components/Navigation";
+import NavDropDown from "@/app/components/Navigation/NavDropDown";
+import Navigation from "@/app/components/Navigation/Navigation";
 
 // import { useAuthContext } from "src/context/AuthContext";
 
