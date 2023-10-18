@@ -23,19 +23,20 @@ const NavBar: React.FC<NavBarProps> = ({ backgroundColor, shadow }) => {
     <Styled.NavBarContainer
       style={{ background: backgroundColor }}
       shadow={shadow}
+      data-testid="navbar-container"
     >
       <Styled.Container>
         <Styled.LogoContainer>
-          <Styled.LargeLogo>
+          <Styled.LargeLogo data-testid="large-logo-container">
             <Image
               src="/darkHeaderLogo.png"
-              alt="bonnet logo"
+              alt="bonnet and text logo"
               width={185}
               height={74}
               priority
             />
           </Styled.LargeLogo>
-          <Styled.SmallLogo>
+          <Styled.SmallLogo data-testid="small-logo-container">
             <Image
               src="/darkBonnet.png"
               alt="bonnet logo"
