@@ -8,7 +8,7 @@ import { ThemeProvider as EmotionThemeProvider } from "@emotion/react";
 // import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
 // import { ModalProvider } from "@/app/context/ModalContext";
-// import { WindowSizeProvider } from "@/app/context/WindowSizeContext";
+import { WindowSizeProvider } from "@/app/context/WindowSizeContext";
 // import { AuthProvider } from "src/context/AuthContext";
 
 import myTheme from "@/app/theme";
@@ -51,11 +51,9 @@ export default function AppWrapper({ children }: { children: React.ReactNode }) 
     //     <StrictMode>
     <ThemeProvider theme={customTheme}>
       <EmotionThemeProvider theme={myTheme}>
-        {/* <WindowSizeProvider>
-             <ModalProvider> */}
-        {children}
-        {/* </ModalProvider>
-           </WindowSizeProvider> */}
+        <WindowSizeProvider>
+          {children}
+        </WindowSizeProvider>
       </EmotionThemeProvider>
     </ThemeProvider>
     //     </StrictMode>

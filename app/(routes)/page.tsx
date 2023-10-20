@@ -5,20 +5,20 @@ import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 
 import NavBar from "@/app/components/Navigation/NavBar";
-// import Main from "src/components/LandingPage/Main";
+import MainLanding from "@/app/components/Home/MainLanding";
 // import BottomContent from "src/components/LandingPage/BottomContent";
 // import Footer from "src/components/shared/Footer";
 // import DailyGarment from "src/components/LandingPage/DailyGarment";
 
-// import { useWindowSizeContext } from "@/app/context/WindowSizeContext";
+import { useWindowSizeContext } from "@/app/context/WindowSizeContext";
 
 interface LandingPageProps {}
 
 const LandingPage: React.FC<LandingPageProps> = props => {
-  // const {
-  //   dimensions: { height, width },
-  // } = useWindowSizeContext();
-  // const scrollRef = React.useRef<HTMLDivElement | null>(null);
+  const {
+    dimensions: { height, width },
+  } = useWindowSizeContext();
+  const scrollRef = React.useRef<HTMLDivElement | null>(null);
 
   const pageContainerRef = React.useRef<HTMLDivElement>(null);
 
@@ -34,8 +34,8 @@ const LandingPage: React.FC<LandingPageProps> = props => {
       ref={pageContainerRef}
     >
       <NavBar backgroundColor="white" />
-      {/* <Main ref={scrollRef} windowHeight={height} />
-        <Styled.RefContainer ref={scrollRef} windowHeight={height}>
+      <MainLanding ref={scrollRef} windowHeight={height} />
+        {/* <Styled.RefContainer ref={scrollRef} windowHeight={height}>
           <DailyGarment windowHeight={height} windowWidth={width} />
         </Styled.RefContainer>
         <BottomContent />
